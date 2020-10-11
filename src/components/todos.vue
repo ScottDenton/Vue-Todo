@@ -12,6 +12,7 @@
     <li
       v-for='(todo,ind) in todos'
       :key=ind> {{ todo }}
+      <span class='delete-text' @click='deleteTodo(ind)'> Delete</span>
     </li>
   </div>
 </template>
@@ -37,6 +38,10 @@
       addTodo() {
         this.todos.push(this.getTodo())
         this.clearInput();
+      },
+      
+      deleteTodo(ind) {
+        this.todos.splice(ind, 1);
       }
     }
 
