@@ -8,13 +8,17 @@
     </form>
 
     <hr>
+
     <h2>Here are all my TODO's</h2>
-    <todo
-      v-for='(todo, index) in todos'
-      :key='index'
-      :todo='todo'
-      :index='index'
-      @delete='deleteTodo'/>
+    <ul>
+      <todo
+        v-for='(todo, index) in todos'
+        :key='index'
+        :todo='todo'
+        :index='index'
+        @delete='deleteTodo'
+      />
+    </ul>
   </div>
 </template>
 
