@@ -9,37 +9,43 @@
 
     <hr>
     <h2>Here are all my TODO's</h2>
-    <li
-      v-for='(todo,ind) in todos'
-      :key=ind> {{ todo }}
-      <span class='delete-text' @click='deleteTodo(ind)'> Delete</span>
-    </li>
+    <todo
+      v-for='(todo, index) in todos'
+      :key='index'
+      :todo='todo'
+      :index='index'
+      @delete='deleteTodo'/>
   </div>
 </template>
 
 <script>
+  import Todo from './todo.vue';
   export default {
+
+    components: {
+      Todo,
+    },
 
     data() {
       return {
-          todos: [],
+        todos: [],
       }
     },
 
     methods: {
       getTodo() {
-        return document.getElementById('todoInput').value
+        return document.getElementById('todoInput').value;
       },
 
       clearInput() {
-        return document.getElementById('todoInput').value = ''
+        return document.getElementById('todoInput').value = '';
       },
 
       addTodo() {
-        this.todos.push(this.getTodo())
+        this.todos.push(this.getTodo());
         this.clearInput();
       },
-      
+
       deleteTodo(ind) {
         this.todos.splice(ind, 1);
       }
