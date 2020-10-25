@@ -1,20 +1,20 @@
 <template>
-  <div>
+  <div class='container'>
     <h1>Our todo list</h1>
     <h2>Enter your next todo</h2>
-    <form>
-    <div class="input-group mb-3">
-      <input id='todoInput' type="text" class="form-control" placeholder="Enter Todo" aria-label="Recipient's username" aria-describedby="button-addon2">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click.prevent='addTodo' >Add</button>
+    <form @submit.prevent='addTodo'>
+      <div class="input-group mb-3">
+      <input type="text" id='todoInput' class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon1" @click.prevent='addTodo'>Add</button>
+        </div>
       </div>
-    </div>
     </form>
 
     <hr>
 
     <h2>Here are all my TODO's</h2>
-    <ul>
+    <div class='todo-container'>
       <todo
         v-for='(todo, index) in todos'
         :key='index'
@@ -22,7 +22,7 @@
         :index='index'
         @delete='deleteTodo'
       />
-    </ul>
+    </div>
   </div>
 </template>
 
