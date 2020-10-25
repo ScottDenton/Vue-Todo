@@ -1,8 +1,11 @@
 <template>
-  <li :class='{"completed": completed}'> {{ todo }}
-    <span class='complete-text' @click='completed = !completed'> Complete </span>
-    <span class='delete-text' @click='deleteTodo()'> Delete </span>
-  </li>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body" :class='{"completed": completed}'>
+      <p class="card-text">{{ todo }}</p>
+      <span class='complete-text' @click='completed = !completed'> Complete </span>
+      <span class='delete-text' @click='deleteTodo()'> Delete </span>
+    </div>
+  </div>
 </template>
 
 <script>
